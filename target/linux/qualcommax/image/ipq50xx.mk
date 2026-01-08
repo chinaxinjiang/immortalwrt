@@ -32,19 +32,19 @@ define Device/cmcc_pz-l8
 endef
 TARGET_DEVICES += cmcc_pz-l8
 
-define Device/cmcc_rax3000q
+define Device/cmcc_rax3000qy
     $(call Device/FitImageLzma)
     $(call Device/UbiFit)
     DEVICE_VENDOR := CMCC
-    DEVICE_MODEL := RAX3000Q
-    DEVICE_DTS_CONFIG := config@rax3000q
+    DEVICE_MODEL := RAX3000QY
+    DEVICE_DTS_CONFIG := config@rax3000qy
     SOC := ipq5018
     BLOCKSIZE := 128k
     PAGESIZE := 2048
     IMAGE_SIZE := 59392k
     NAND_SIZE := 128m
 endef
-TARGET_DEVICES += cmcc_rax3000q
+TARGET_DEVICES += cmcc_rax3000qy
 
 define Device/elecom_wrc-x3000gs2
 	$(call Device/FitImageLzma)
