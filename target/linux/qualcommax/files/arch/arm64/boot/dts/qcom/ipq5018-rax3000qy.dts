@@ -113,7 +113,7 @@
 };
 
 /* =======================
- * NAND (⚠️ qpic_nand, not nand)
+ * NAND (QPIC)
  * ======================= */
 
 &qpic_bam {
@@ -139,20 +139,20 @@
 		led_status_red: led-red {
 			gpios = <&tlmm 24 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_RED>;
-			function = LED_FUNCTION_STATUS;
+			function = "status";
 			default-state = "on";
 		};
 
 		led_status_green: led-green {
 			gpios = <&tlmm 19 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_GREEN>;
-			function = LED_FUNCTION_STATUS;
+			function = "status";
 		};
 
 		led_status_blue: led-blue {
 			gpios = <&tlmm 17 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_BLUE>;
-			function = LED_FUNCTION_INTERNET;
+			function = "internet";
 		};
 	};
 
@@ -243,11 +243,10 @@
 
 /*
  * IPQ5018 内置 Wi-Fi：
- * ❌ 不要写 wifi0
- * ✔ ath11k 通过 remoteproc 自动创建
+ * ath11k 由 remoteproc 自动创建
  */
 
-/* QCN6122 (5G) */
+/* QCN6122 (5 GHz) */
 &wifi1 {
 	status = "okay";
 
