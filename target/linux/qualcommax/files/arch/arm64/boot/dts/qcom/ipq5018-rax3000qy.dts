@@ -190,20 +190,20 @@
 		led_status_red: led-status-red {
 			gpios = <&tlmm 24 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_RED>;
-			function = <LED_FUNCTION_STATUS>;
+			function = "status";
 			default-state = "on";
 		};
 
 		led_status_green: led-status-green {
 			gpios = <&tlmm 19 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_GREEN>;
-			function = <LED_FUNCTION_STATUS>;
+			function = "status";
 		};
 
 		led_status_blue: led-status-blue {
 			gpios = <&tlmm 17 GPIO_ACTIVE_HIGH>;
 			color = <LED_COLOR_ID_BLUE>;
-			function = <LED_FUNCTION_INTERNET>;
+			function = "internet";
 		};
 	};
 
