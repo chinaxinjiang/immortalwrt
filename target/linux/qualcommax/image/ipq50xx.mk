@@ -33,21 +33,24 @@ endef
 TARGET_DEVICES += cmcc_pz-l8
 
 define Device/cmcc_rax3000qy
-  DEVICE_VENDOR := CMCC
-  DEVICE_MODEL := RAX3000QY
-  DEVICE_DTS := ipq5018-rax3000qy
-  DEVICE_DTS_CONFIG := config@mp03.5-c1
-  IMAGE_SIZE := 131072k
+  	DEVICE_VENDOR := CMCC
+  	DEVICE_MODEL := RAX3000QY
+  	SOC := ipq5018
 
-  DEVICE_PACKAGES := \
+  	DEVICE_DTS := ipq5018-rax3000qy
+  	DEVICE_DTS_CONFIG := config@mp02.1
+
+  	DEVICE_PACKAGES := \
 	ath11k-firmware-ipq5018 \
 	ath11k-firmware-qcn6122 \
-	kmod-ath11k \
-	kmod-gpio-button-hotplug \
-	kmod-leds-gpio \
-	kmod-nss-dp \
-	kmod-qca-ssdk \
-	uboot-envtools
+	ipq-wifi-cmcc_rax3000qy
+
+  	# sysupgrade（FIT）
+  	IMAGE/sysupgrade.itb := append-kernel | append-rootfs | pad-rootfs | check-size
+
+ 	 # NAND factory（UBI installer）
+  	IMAGES += nand-factory.ubi
+  	IMAGE/nand-factory.ubi := append-ubi
 endef
 TARGET_DEVICES += cmcc_rax3000qy
 
