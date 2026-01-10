@@ -33,33 +33,24 @@ endef
 TARGET_DEVICES += cmcc_pz-l8
 
 define Device/cmcc_rax3000qy
-    # 使用 FitImageLzma 和 UbiFit 宏
-    $(call Device/FitImageLzma)
-    $(call Device/UbiFit)
+	$(call Device/FitImageLzma)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := CMCC
+	DEVICE_MODEL := RAX3000QY
+	DEVICE_DTS_CONFIG := config@mp02.1
+	SOC := ipq5018
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	IMAGE_SIZE := 59392k
+	NAND_SIZE := 128m
+	IMAGES := sysupgrade.bin nand-factory.ubi
 
-    DEVICE_VENDOR := CMCC
-    DEVICE_MODEL := RAX3000QY
-    SOC := ipq5018
-
-    # DTS 文件路径修正为 qcom/ 前缀
-    DEVICE_DTS := qcom/ipq5018-rax3000qy
-    DEVICE_DTS_CONFIG := config@mp02.1
-
-    # 添加 NAND 相关参数
-    BLOCKSIZE := 128k
-    PAGESIZE := 2048
-    NAND_SIZE := 128m
-    KERNEL_IN_UBI := 1
-
-    DEVICE_PACKAGES := \
-        ath11k-firmware-ipq5018 \
+    DEVICE_PACKAGES := \        
         ath11k-firmware-qcn6122 \
         ipq-wifi-cmcc_rax3000qy
-
-    # 可选：自定义镜像后缀（这里保持默认即可）
-    IMAGES := sysupgrade.bin nand-factory.ubi
 endef
 TARGET_DEVICES += cmcc_rax3000qy
+
 
 define Device/elecom_wrc-x3000gs2
 	$(call Device/FitImageLzma)
@@ -96,8 +87,7 @@ define Device/glinet_gl-b3000
 	IMAGE/factory.img := append-ubi | gl-qsdk-factory | append-metadata
 	DEVICE_PACKAGES := \
 		ath11k-firmware-ipq5018-qcn6122 \
-		ipq-wifi-glinet_gl-b3000 \
-		dumpimage
+		ipq-wifi-glinet_gl-b3000
 endef
 TARGET_DEVICES += glinet_gl-b3000
 
