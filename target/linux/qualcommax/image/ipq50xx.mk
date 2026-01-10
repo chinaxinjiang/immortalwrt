@@ -43,7 +43,6 @@ define Device/cmcc_rax3000qy
 	PAGESIZE := 2048
 	IMAGE_SIZE := 59392k
 	NAND_SIZE := 128m
-	IMAGES := sysupgrade.bin nand-factory.ubi
 	DEVICE_PACKAGES := \
 		ath11k-firmware-qcn6122 \
 		ipq-wifi-cmcc_rax3000qy
