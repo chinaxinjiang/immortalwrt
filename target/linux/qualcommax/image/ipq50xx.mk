@@ -45,12 +45,11 @@ define Device/cmcc_rax3000qy
 	NAND_SIZE := 128m
 	IMAGES := sysupgrade.bin nand-factory.ubi
 
-    DEVICE_PACKAGES := \        
-        ath11k-firmware-qcn6122 \
-        ipq-wifi-cmcc_rax3000qy
+	DEVICE_PACKAGES := \
+		ath11k-firmware-qcn6122 \
+		ipq-wifi-cmcc_rax3000qy
 endef
 TARGET_DEVICES += cmcc_rax3000qy
-
 
 define Device/elecom_wrc-x3000gs2
 	$(call Device/FitImageLzma)
