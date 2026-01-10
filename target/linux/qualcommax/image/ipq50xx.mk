@@ -43,6 +43,7 @@ define Device/cmcc_rax3000qy
 	PAGESIZE := 2048
 	IMAGE_SIZE := 59392k
 	NAND_SIZE := 128m
+	KERNEL_IN_UBI := 1
 	IMAGES := sysupgrade.bin nand-factory.ubi
 
 	DEVICE_PACKAGES := \
