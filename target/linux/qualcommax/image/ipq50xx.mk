@@ -33,7 +33,7 @@ endef
 TARGET_DEVICES += cmcc_pz-l8
 
 define Device/cmcc_rax3000qy
-	$(call Device/FitImageLzma)
+	$(call Device/FitImage)
 	$(call Device/UbiFit)
 	DEVICE_VENDOR := CMCC
 	DEVICE_MODEL := RAX3000QY
@@ -44,7 +44,6 @@ define Device/cmcc_rax3000qy
 	IMAGE_SIZE := 59392k
 	NAND_SIZE := 128m
 	IMAGES := sysupgrade.bin nand-factory.ubi
-	IMAGE/nand-factory.ubi := factory.ubi
 	DEVICE_PACKAGES := \
 		ath11k-firmware-qcn6122 \
 		ipq-wifi-cmcc_rax3000qy
